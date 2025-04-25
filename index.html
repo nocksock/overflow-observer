@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤦</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>overflow-observer</title>
+    <style>
+    :root {
+      font-family: system-ui, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    ul {
+      --_border: 2px solid black;
+      
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      /** styles for when overflowing **/
+      overflow-observer:state(overflow) & {
+        flex-direction: column;
+        li:first-child { border-block-start: var(--_border); }
+        li { 
+          border-block-end: var(--_border); 
+        }
+      }
+      
+      /** styles for when not overflowing **/
+      overflow-observer:not(:state(overflow)) & {
+        li:first-child { border-inline-start: var(--_border); }
+        li { 
+          border-inline-end: var(--_border); 
+          border-block: var(--_border);
+        }
+      }
+      
+      li {
+        min-inline-size: max-content;
+        padding: 0.5rem;
+        gap: 0.5rem;
+      }
+    }
+
+    </style>
+  </head>
+  <body>
+
+    <h1>OverflowObserver</h1>
+
+    <overflow-observer>
+      <ul>
+        <li>Some Item #1</li>
+        <li>Some Item #2</li>
+        <li>Some Item #3</li>
+        <li>Some Item #4</li>
+        <li>Some Item #5</li>
+        <li>Some Item #6</li>
+      </ul>
+    </overflow-observer>
+
+    <script type="module" src="/demo.js"></script>
+  </body>
+</html>

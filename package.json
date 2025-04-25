@@ -1,0 +1,11 @@
+{
+  "name": "overflow-observer",
+  "description": "A tiny web component to determine if an element is overflowing its container.",
+  "version": "0.0.1",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "lib/mod.js"
+  ],
+  "module": "./lib/mod.js"
+}
