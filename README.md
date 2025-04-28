@@ -28,8 +28,20 @@ overflow-observer:state(overflow) {
 overflow-observer:state(overflowblock) {
     /** is overflowing in block direction **/
 }
+overflow-observer:state(overflowblockstart) {
+    /** is overflowing in block start direction **/
+}
+overflow-observer:state(overflowblockend) {
+    /** is overflowing in block end direction **/
+}
 overflow-observer:state(overflowinline) {
     /** is overflowing in inline direction **/
+}
+overflow-observer:state(overflowinlinestart) {
+    /** is overflowing in inline start direction **/
+}
+overflow-observer:state(overflowinlineend) {
+    /** is overflowing in inline end direction **/
 }
 ```
 
@@ -43,4 +55,4 @@ document
     })
 ```
 
-Where detail is an array of all states it has, eg: `["overflow", "overflowblock", "overflowinline"]` when overflowing in all directions.
+Where detail is an array of all states it has, eg: `["overflow", "overflowinline", "overflowinlineend]` when overflowing on the inline axis.
