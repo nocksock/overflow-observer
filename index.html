@@ -20,19 +20,12 @@
       resize: both;
       overflow: scroll;
       background: magenta;
-      border: 5px solid blue;
+      border: 10px solid transparent;
       margin-inline: auto;
-
-
-      & > * {
-        width: 400px;
-        height: 400px;
-        background: #aaa;
-      }
 
       &:state(overflow) {
         outline: 2px solid lime;
-        outline-offset: 2px;
+        outline-offset: 5px;
       }
 
       &:state(overflowinline) {
@@ -63,6 +56,16 @@
       text-align: center;
     }
 
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 400px;
+      height: 400px;
+      background: #aaa;
+    }
+
     </style>
   </head>
   <body>
@@ -70,7 +73,9 @@
     <h1>OverflowObserver</h1>
 
     <overflow-observer id="observer" class="resizer">
-      <div></div>
+      <div class="box">
+        resize and scrollme
+      </div>
     </overflow-observer>
     <overflow-observer-states for="observer"></overflow-observer-states>
 
