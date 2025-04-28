@@ -12,28 +12,35 @@ A tiny web component to determine if an element is overflowing its container.
     <ul>
         <li>
             <a href="#">some item</a>
-        </li>
-        <li>
+        </li><li>
             <a href="#">some other item</a>
         </li>
-        <li>...</li>
-        ...
     </ul>
 </overflow-observer>
 ```
 
-Style it using CSS
+Style it using CSS:
 
 ```css
-ul {
-    overflow-observer:state(overflow) & {
-        /** styles for when overflowing **/
-    }
-    
-    overflow-observer:not(:state(overflow)) & {
-        /** styles for when not overflowing **/
-    }
+overflow-observer:state(overflow) {
+    /** is overflowing **/
+}
+overflow-observer:state(overflowblock) {
+    /** is overflowing in block direction **/
+}
+overflow-observer:state(overflowinline) {
+    /** is overflowing in inline direction **/
 }
 ```
 
-That's it.
+Listen to events
+
+```js
+document
+    .querySelector('overflow-observer')
+    .addEventListener('overflow:changed', ({detail}) => {
+        console.log(detail)
+    })
+```
+
+Where detail is an array of all states it has, eg: `["overflow", "overflowblock", "overflowinline"]` when overflowing in all directions.
