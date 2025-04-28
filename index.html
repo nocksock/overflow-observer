@@ -14,102 +14,15 @@
       text-align: center;
     }
 
-    overflow-observer {
-    }
-
-    body {
-      max-width: 1000px;
-      margin-inline: auto;
-
-      > * {
-        margin-block-start: 2lh;
-      }
-    }
-
-    #switch ul {
-      --_border: 2px solid black;
-      
-      display: flex;
-      list-style: none;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      gap: 3ch;
-      
-      /** styles for when overflowing **/
-      overflow-observer:state(overflow) & {
-        flex-direction: column;
-      }
-      
-      /** styles for when not overflowing **/
-      overflow-observer:not(:state(overflow)) & {
-        border: 1px solid #aaa;
-      }
-      
-      li {
-        min-inline-size: max-content;
-        padding: 0.5rem;
-        background: #aaa;
-      }
-    }
-
-    .indicator.y {
-      height: 10px;
-      overflow: clip;
-    }
-
-    .indicator ul {
-      display: flex;
-      gap: 3ch;
-      flex-wrap: nowrap;
-      list-style: none;
-      overflow: auto;
-      position: relative;
-
-      li {
-        min-inline-size: max-content;
-        padding: 0.5rem;
-        background: #aaa;
-      }
-
-      overflow-observer:state(overflow) {
-        outline: 1px solid red;
-      }
-
-      overflow-observer:state(overflowx) & {
-        &::before {
-          display: block;
-          content: "x";
-          position: absolute;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          height: 100%;
-          background: red;
-        }
-      }
-
-      overflow-observer:state(overflowy) & {
-        &::before {
-          display: block;
-          content: "y";
-          position: absolute;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          height: 20px;
-          background: lime;
-        }
-      }
-    }
-
     .resizer {
-      width: 500px;
-      height: 500px;
+      width: 300px;
+      height: 300px;
       resize: both;
       overflow: scroll;
       background: magenta;
       border: 5px solid blue;
+      margin-inline: auto;
+
 
       & > * {
         width: 400px;
@@ -125,7 +38,6 @@
       &:state(overflowinline) {
         border-inline-color: lime;
       }
-
       &:state(overflowblock) {
         border-block-color: lime;
       }
@@ -142,6 +54,13 @@
       &:state(overflowinlinestart) {
         border-inline-start-style: dashed;
       }
+    }
+
+    overflow-observer-states {
+      display: block;
+      margin-inline: auto;
+      margin-block: 1em;
+      text-align: center;
     }
 
     </style>
