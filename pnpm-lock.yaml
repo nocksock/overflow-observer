@@ -1,0 +1,36 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      web-dev-server:
+        specifier: ^3.0.27
+        version: 3.0.27
+
+packages:
+
+  mime-db@1.54.0:
+    resolution: {integrity: sha512-aU5EJuIN2WDemCcAp2vFBfp/m4EAhWJnUNSSw0ixs7/kXbd6Pg64EmwJkNdFhB8aWt1sH2CTXrLxo/iAGV3oPQ==}
+    engines: {node: '>= 0.6'}
+
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
+  web-dev-server@3.0.27:
+    resolution: {integrity: sha512-fCT9qe/Txp0KugkvbJ4LiFnUgaX6Brvkm+BiDRBX394kyQ5iCOBzFMikMaIUf4A4SczA/Ea3m40J13XGQfeoBw==}
+
+snapshots:
+
+  mime-db@1.54.0: {}
+
+  tslib@2.8.1: {}
+
+  web-dev-server@3.0.27:
+    dependencies:
+      mime-db: 1.54.0
+      tslib: 2.8.1
